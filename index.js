@@ -1,16 +1,16 @@
-import express from 'express'
-import cors from 'cors'
-import bodyParser from 'body-parser'
-import mongoose from 'mongoose'
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
 
-import 'dotenv/config'
+import "dotenv/config";
 
-const app = express()
+const app = express();
 
-app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.json())
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -20,9 +20,9 @@ mongoose
   });
 
 app.get("/", (req, res) => {
-    res.status(200).json({message: "Hello world"})
-})
+  res.status(200).json({ message: "Hello world" });
+});
 
 app.listen(process.env.PORT || 5000, () => {
-    console.log(`Server is running on localhost:${3000}`)
-})
+  console.log(`Server is running on localhost:${3000}`);
+});
