@@ -3,6 +3,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
+import authRouter from "./routes/auth.router.js";
+
 import "dotenv/config";
 
 const app = express();
@@ -11,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use("/api/v1/auth", authRouter);
 
 mongoose
   .connect(process.env.MONGO_URL)
