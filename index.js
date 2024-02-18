@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 import authRouter from "./routes/auth.router.js";
+import userRouter from "./routes/user.router.js";
 
 import "dotenv/config";
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/user", userRouter);
 
 mongoose
   .connect(process.env.MONGO_URL)
