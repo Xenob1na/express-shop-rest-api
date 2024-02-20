@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "8a885832-87d5-4ba3-8f00-24d112ee4bb2",
+		"name": "Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33021841"
+	},
+	"item": [
+		{
+			"name": "Auth user",
+			"item": [
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Danil Petrov\",\r\n    \"email\": \"petrov@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/auth/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"petrov@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/auth/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUser + verifyToken",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODI3MTU5NiwiZXhwIjoxNzA4MzU3OTk2fQ.4CBJNXZP_0Mr0PFQJ7AsJ5F80-jCv40C6Dm4e98rfSk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/user/AllUser",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"AllUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById + verifyToken",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODI3MTU5NiwiZXhwIjoxNzA4MzU3OTk2fQ.4CBJNXZP_0Mr0PFQJ7AsJ5F80-jCv40C6Dm4e98rfSk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/user/User/65cf8ce3cca7c11768e23dcb",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"User",
+								"65cf8ce3cca7c11768e23dcb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser + verifyToken",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODI3MTU5NiwiZXhwIjoxNzA4MzU3OTk2fQ.4CBJNXZP_0Mr0PFQJ7AsJ5F80-jCv40C6Dm4e98rfSk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Ivanov Ivan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/user/User/65cf8bc71354733a3461d9ef",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"User",
+								"65cf8bc71354733a3461d9ef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser + verifyToken",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODI3MTU5NiwiZXhwIjoxNzA4MzU3OTk2fQ.4CBJNXZP_0Mr0PFQJ7AsJ5F80-jCv40C6Dm4e98rfSk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/user/User/65d22fa859cd46cd1170b4f1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"User",
+								"65d22fa859cd46cd1170b4f1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "CreateProduct + verifyToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Nike tshirt\",\r\n   \"description\": \"test test\",\r\n   \"price\": 20,\r\n   \"image\": \"test.png\",\r\n   \"size\": \"M\",\r\n   \"color\": \"grey\",\r\n   \"category\": [\"tshirt\", \"man\"] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/products/CreateProduct",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"products",
+								"CreateProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/products/AllProduct",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"products",
+								"AllProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/products/Product/65d49e87259246df4735f5c6",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"products",
+								"Product",
+								"65d49e87259246df4735f5c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct + verifyToken",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": [\"tshirt\", \"women\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/products/Product/65d4912d3fc1802ef4c1131e",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"products",
+								"Product",
+								"65d4912d3fc1802ef4c1131e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductBySort",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/products/AllProduct?category=man",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"products",
+								"AllProduct"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "man"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct + verifyToken",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/products/Product/65d4a5eb65082def1e1c1830",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"products",
+								"Product",
+								"65d4a5eb65082def1e1c1830"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "createOrder + verifyToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"65cf8bc71354733a3461d9ef\",\r\n    \"products\": [\r\n        {\r\n            \"productId\": \"65d4912d3fc1802ef4c1131e\",\r\n            \"quantity\": 4\r\n        },\r\n        {\r\n            \"productId\": \"65d49e87259246df4735f5c6\",\r\n            \"quantity\": 10\r\n        }\r\n    ],\r\n    \"amount\": 120,\r\n    \"address\": \"MOSCOW\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/order/CreateOrder",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"order",
+								"CreateOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserOrder + verifyToken",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/order/find/65cf8bc71354733a3461d9ef",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"order",
+								"find",
+								"65cf8bc71354733a3461d9ef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllUserOrder + verifyToken",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/order/AllUserOrder",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"order",
+								"AllUserOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrder + verifyToken",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/order/Order/65d4b45bcbe4cd94f5174099",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"order",
+								"Order",
+								"65d4b45bcbe4cd94f5174099"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder + verifyToken",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Y4Y2UzY2NhN2MxMTc2OGUyM2RjYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQyOTExNSwiZXhwIjoxNzA4NTE1NTE1fQ.AfpZ9_ITiYIRQm_0B9NO1hd-C-mxTXlfTa8sRoxKM8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"productId\": \"65d4912d3fc1802ef4c1131e\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"productId\": \"65d49e87259246df4735f5c6\",\r\n            \"quantity\": 40\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/order/Order/65d4b2accbe4cd94f517407c",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"order",
+								"Order",
+								"65d4b2accbe4cd94f517407c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
