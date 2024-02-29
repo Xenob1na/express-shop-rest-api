@@ -15,10 +15,16 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: "User already exist" });
     }
 
+    const hashPassword = await bcryptjs.hash(password, 10);
+    const salt = await bcryptjs.genSalt(10);
+
+    const passwordHash = await bcryptjs.hash(hashPassword, salt);
+
+  
     const newUser = new UserModel({
       username,
       email,
-      password: await bcryptjs.hash(password, 10),
+      password: passwordHash,
     });
 
     const savedUser = await newUser.save();
@@ -58,6 +64,13 @@ export const login = async (req, res) => {
         expiresIn: "1d",
       }
     );
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    });
 
     res.status(200).json({
       data: {
